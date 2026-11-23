@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mess Split</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mess Split</h1>
+    <p class="tagline">Who paid for bazar, who owes whom.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="members-h">
+      <h2 id="members-h">Members</h2>
+      <form id="member-form" novalidate>
+        <label for="member-name" class="visually-hidden">Member name</label>
+        <div class="row">
+          <input id="member-name" type="text" placeholder="Name" autocomplete="off" maxlength="40">
+          <button type="submit">Add</button>
+        </div>
+        <p id="member-error" class="error" role="alert"></p>
+      </form>
+      <ul id="member-list" class="list"></ul>
+      <p id="member-empty" class="empty">No members yet.</p>
+    </section>
+
+    <section aria-labelledby="payment-h">
+      <h2 id="payment-h">Add payment</h2>
+      <form id="payment-form" novalidate>
+        <label for="payment-payer">Payer</label>
+        <select id="payment-payer"></select>
+
+        <label for="payment-amount">Amount (Tk)</label>
+        <input id="payment-amount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="e.g. 500" autocomplete="off">
+
+        <label for="payment-note">Note</label>
+        <input id="payment-note" type="text" placeholder="e.g. rice, fish" maxlength="100" autocomplete="off">
+
+        <button type="submit">Add payment</button>
+        <p id="payment-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section aria-labelledby="payments-h">
+      <h2 id="payments-h">Payments <span id="payments-total" class="muted"></span></h2>
+      <ul id="payment-list" class="list"></ul>
+      <p id="payment-empty" class="empty">No payments yet.</p>
+    </section>
+
+    <section aria-labelledby="balances-h">
+      <h2 id="balances-h">Balances</h2>
+      <table id="balance-table">
+        <thead>
+          <tr><th>Name</th><th>Paid</th><th>Share</th><th>Balance</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="balance-empty" class="empty">Add members to see balances.</p>
+    </section>
+
+    <section aria-labelledby="settle-h">
+      <h2 id="settle-h">Settle up</h2>
+      <ul id="settle-list" class="list"></ul>
+      <p id="settle-empty" class="empty">Everyone is settled.</p>
+    </section>
+  </main>
+
+  <script src="split.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
